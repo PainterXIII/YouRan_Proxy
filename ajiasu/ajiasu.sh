@@ -1,31 +1,38 @@
 #!/bin/bash
 
-# 定义下载的 ajiasu 可执行文件和配置文件
+# 定义 ajiasu 可执行文件和配置文件的路径
 AJIASU_BIN="/usr/local/bin/ajiasu"
 AJIASU_CONF="/etc/ajiasu.conf"
 LOGIN_SYNC_FILE="/etc/ajiasu/ajiasu-data/LoginSync.dat"
 
-# 下载 ajiasu 可执行文件并存放到 /usr/local/bin
-echo "正在下载 ajiasu 可执行文件..."
-curl -L -o $AJIASU_BIN https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu
-if [ $? -eq 0 ]; then
-    echo "ajiasu 可执行文件下载成功"
+# 检查 ajiasu 可执行文件是否存在，若不存在则下载
+if [ -f "$AJIASU_BIN" ]; then
+    echo "ajiasu 可执行文件已存在，跳过下载"
 else
-    echo "ajiasu 可执行文件下载失败"
-    exit 1
+    echo "正在下载 ajiasu 可执行文件..."
+    curl -L -o $AJIASU_BIN https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu
+    if [ $? -eq 0 ]; then
+        echo "ajiasu 可执行文件下载成功"
+    else
+        echo "ajiasu 可执行文件下载失败"
+        exit 1
+    fi
+    # 给予可执行权限
+    chmod +x $AJIASU_BIN
 fi
 
-# 给予可执行权限
-chmod +x $AJIASU_BIN
-
-# 下载 ajiasu 配置文件并存放到 /etc
-echo "正在下载 ajiasu 配置文件..."
-curl -L -o $AJIASU_CONF https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu.conf
-if [ $? -eq 0 ]; then
-    echo "ajiasu 配置文件下载成功"
+# 检查 ajiasu 配置文件是否存在，若不存在则下载
+if [ -f "$AJIASU_CONF" ]; then
+    echo "ajiasu 配置文件已存在，跳过下载"
 else
-    echo "ajiasu 配置文件下载失败"
-    exit 1
+    echo "正在下载 ajiasu 配置文件..."
+    curl -L -o $AJIASU_CONF https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu.conf
+    if [ $? -eq 0 ]; then
+        echo "ajiasu 配置文件下载成功"
+    else
+        echo "ajiasu 配置文件下载失败"
+        exit 1
+    fi
 fi
 
 # 检查是否需要执行登录
