@@ -13,7 +13,7 @@ curl -L -o /etc/ajiasu.conf https://github.moeyy.xyz/https://raw.githubuserconte
 ajiasu login
 
 # 启动5个 ajiasu connect 并确保其在后台运行，SSH断开也不会终止
-for i in {1..5}; do
+for i in {1..6}; do
     nohup bash -c '
     while true; do
         ajiasu connect
