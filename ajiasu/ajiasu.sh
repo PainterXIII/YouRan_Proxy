@@ -10,7 +10,7 @@ if [ -f "$AJIASU_BIN" ]; then
     echo "ajiasu 可执行文件已存在，跳过下载"
 else
     echo "正在下载 ajiasu 可执行文件..."
-    curl -L -o $AJIASU_BIN https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu
+    curl -L -o $AJIASU_BIN https://gh.llkk.cc/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu
     if [ $? -eq 0 ]; then
         echo "ajiasu 可执行文件下载成功"
     else
@@ -26,7 +26,7 @@ if [ -f "$AJIASU_CONF" ]; then
     echo "ajiasu 配置文件已存在，跳过下载"
 else
     echo "正在下载 ajiasu 配置文件..."
-    curl -L -o $AJIASU_CONF https://github.moeyy.xyz/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu.conf
+    curl -L -o $AJIASU_CONF https://gh.llkk.cc/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/ajiasu/ajiasu.conf
     if [ $? -eq 0 ]; then
         echo "ajiasu 配置文件下载成功"
     else
