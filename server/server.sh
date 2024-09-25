@@ -37,4 +37,18 @@ echo "======== 安装net-tools ========"
 apt install -y net-tools
 echo "net-tools 已安装"
 
+# 5. 修改DNS设置
+echo "======== 修改DNS设置 ========"
+# 备份原有的resolv.conf文件
+cp /etc/resolv.conf /etc/resolv.conf.bak
+
+# 写入新的DNS服务器
+cat > /etc/resolv.conf <<EOF
+nameserver 223.5.5.5
+nameserver 119.29.29.29
+nameserver 2400:3200::1
+nameserver 2400:3200:baba::1
+EOF
+echo "DNS服务器已修改"
+
 echo "======== 脚本执行完毕 ========"
