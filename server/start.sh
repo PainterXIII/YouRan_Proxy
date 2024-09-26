@@ -10,7 +10,11 @@ error() {
 
 # 1. 开启IP转发
 info "======== 开启IP转发 ========"
-if sysctl -w net.ipv4.ip_forward=1; then
+
+# 添加IP转发设置到 /etc/sysctl.conf
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+
+if sysctl -w net.ipv4.ip_forward=1 && sysctl -p; then
     info "IP转发已开启"
 else
     error "IP转发开启失败"
