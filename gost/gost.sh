@@ -147,10 +147,10 @@ function Stop_ct() {
   echo "已停止"
 }
 function Restart_ct() {
-  rm -rf /etc/gost/config.json
-  confstart
-  writeconf
-  conflast
+  # rm -rf /etc/gost/config.json
+  # confstart
+  # writeconf
+  # conflast
   systemctl restart gost
   echo "已重读配置并重启"
 }
