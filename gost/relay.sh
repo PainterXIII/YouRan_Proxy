@@ -21,7 +21,7 @@ fi
 # 创建新的 config.json 内容
 config_content=$(cat <<EOF
 {
-    "Debug": true,
+    "Debug": false,
     "Retries": 0,
     "ServeNodes": [
         "tcp://:1701/$ip_address:1701",
