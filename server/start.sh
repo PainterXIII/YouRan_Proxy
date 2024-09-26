@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # 定义颜色函数，用于醒目的输出提示
 info() {
     echo -e "\e[32m$1\e[0m"
@@ -7,6 +8,25 @@ info() {
 error() {
     echo -e "\e[31m$1\e[0m"
 }
+
+# 0. 修改DNS设置
+info "======== 修改DNS设置 ========"
+
+# 备份原有的resolv.conf文件
+cp /etc/resolv.conf /etc/resolv.conf.bak
+
+# 写入新的DNS服务器
+cat > /etc/resolv.conf <<EOF
+nameserver 223.5.5.5
+nameserver 119.29.29.29
+nameserver 2400:3200::1
+nameserver 2400:3200:baba::1
+EOF
+
+# 防止 resolv.conf 被自动覆盖（可选）
+chattr +i /etc/resolv.conf
+info "DNS服务器已修改并锁定"
+
 
 # 1. 开启IP转发
 info "======== 开启IP转发 ========"
@@ -59,22 +79,5 @@ else
     error "vim 和 net-tools 安装失败"
 fi
 
-# 5. 修改DNS设置
-info "======== 修改DNS设置 ========"
-
-# 备份原有的resolv.conf文件
-cp /etc/resolv.conf /etc/resolv.conf.bak
-
-# 写入新的DNS服务器
-cat > /etc/resolv.conf <<EOF
-nameserver 223.5.5.5
-nameserver 119.29.29.29
-nameserver 2400:3200::1
-nameserver 2400:3200:baba::1
-EOF
-
-# 防止 resolv.conf 被自动覆盖（可选）
-chattr +i /etc/resolv.conf
-info "DNS服务器已修改并锁定"
 
 info "======== 脚本执行完毕 ========"
