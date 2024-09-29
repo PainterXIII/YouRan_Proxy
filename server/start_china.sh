@@ -27,6 +27,9 @@ EOF
 chattr +i /etc/resolv.conf
 info "DNS服务器已修改并锁定"
 
+# 0. 关闭 systemd-resolved
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
 
 # 1. 开启IP转发
 
