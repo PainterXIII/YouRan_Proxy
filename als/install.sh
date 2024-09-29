@@ -2,7 +2,7 @@
 
 # 定义下载链接
 PROGRAM_URL="https://ghproxy.cn/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/als/als-linux-amd64"
-SERVICE_URL="https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/als/als.service"
+SERVICE_URL="https://ghproxy.cn/https://raw.githubusercontent.com/PainterXIII/YouRan_Proxy/master/als/als.service"
 
 # 定义目标路径
 PROGRAM_PATH="/usr/local/bin/als-linux-amd64"
