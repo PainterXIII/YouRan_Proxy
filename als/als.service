@@ -1,0 +1,14 @@
+[Unit]
+Description=ALS Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/als-linux-amd64
+Restart=on-failure
+User=root  # 请根据需要替换为实际用户
+WorkingDirectory=/usr/local/bin  # 可根据需要修改
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
