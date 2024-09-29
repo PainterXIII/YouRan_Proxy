@@ -31,14 +31,22 @@ info "DNS服务器已修改并锁定"
 # 1. 开启IP转发
 info "======== 开启IP转发 ========"
 
-# 添加IP转发设置到 /etc/sysctl.conf
-echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+info "======== 检查IP转发状态 ========"
 
-if sysctl -w net.ipv4.ip_forward=1 && sysctl -p; then
-    info "IP转发已开启"
+# 检查IP转发是否已开启
+if sysctl net.ipv4.ip_forward | grep -q '1'; then
+    info "IP转发已开启，无需添加设置"
 else
-    error "IP转发开启失败"
+    # 添加IP转发设置到 /etc/sysctl.conf
+    echo "net.ipv4.ip_forward=1" | tee -a /etc/sysctl.conf
+
+    if sysctl -w net.ipv4.ip_forward=1 && sysctl -p; then
+        info "IP转发已开启"
+    else
+        error "IP转发开启失败"
+    fi
 fi
+
 
 # 2. 判断系统防火墙并关闭
 info "======== 判断防火墙并关闭 ========"
