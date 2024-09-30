@@ -190,8 +190,12 @@ ip=$(cat /etc/ipsec.conf | grep leftid | awk -F "=" '{print $2}')
 
 nic_ip=$(echo $line | awk '{print $1}')
 # echo -e "${GREEN}创建第 $((start_num - 1)) 个${NC}"
-echo "vpnuser1     l2tpd     hm123456     192.168.18.3" >> /etc/ppp/chap-secrets
-echo "root         l2tpd     hm123456     192.168.18.4" >> /etc/ppp/chap-secrets
+echo "user1     l2tpd     hm123456     192.168.18.3" >> /etc/ppp/chap-secrets
+echo "user2     l2tpd     hm123456     192.168.18.4" >> /etc/ppp/chap-secrets
+echo "user3     l2tpd     hm123456     192.168.18.5" >> /etc/ppp/chap-secrets
+echo "user4     l2tpd     hm123456     192.168.18.6" >> /etc/ppp/chap-secrets
+echo "user5     l2tpd     hm123456     192.168.18.7" >> /etc/ppp/chap-secrets
+echo "user6     l2tpd     hm123456     192.168.18.8" >> /etc/ppp/chap-secrets
 systemctl restart xl2tpd
 systemctl restart ipsec
 
