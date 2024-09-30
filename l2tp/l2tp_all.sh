@@ -190,12 +190,8 @@ ip=$(cat /etc/ipsec.conf | grep leftid | awk -F "=" '{print $2}')
 
 nic_ip=$(echo $line | awk '{print $1}')
 # echo -e "${GREEN}创建第 $((start_num - 1)) 个${NC}"
-echo "vpnuser1     l2tpd     hm123456     *" >> /etc/ppp/chap-secrets
-echo "root     l2tpd     hm123456     192.168.18.4" >> /etc/ppp/chap-secrets
-iptables -t nat -A POSTROUTING -s 192.168.18.3 -j SNAT --to-source $nic_ip
-iptables -t nat -A POSTROUTING -s 192.168.18.4 -j SNAT --to-source $nic_ip
-
-iptables-save > /etc/iptables/rules.v4
+echo "vpnuser1     l2tpd     hm123456     192.168.18.3" >> /etc/ppp/chap-secrets
+echo "root         l2tpd     hm123456     192.168.18.4" >> /etc/ppp/chap-secrets
 systemctl restart xl2tpd
 systemctl restart ipsec
 
