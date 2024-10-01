@@ -1,4 +1,6 @@
 #!/bin/bash
+# 安装Nginx和Nginx Extras
+apt install -y nginx nginx-extras
 
 # 提示用户输入IP地址
 read -p "请输入要转发的IP地址: " ip_address
@@ -166,7 +168,7 @@ echo "nginx反向代理配置已创建并保存到 $config_path"
 killall nginx
 
 # 重新启动 nginx 服务
-systemctl start nginx
+nginx
 
 # 检查服务状态
 if [ $? -eq 0 ]; then
