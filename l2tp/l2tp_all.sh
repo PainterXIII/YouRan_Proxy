@@ -196,9 +196,16 @@ echo "user3     l2tpd     hm123456     192.168.18.5" >> /etc/ppp/chap-secrets
 echo "user4     l2tpd     hm123456     192.168.18.6" >> /etc/ppp/chap-secrets
 echo "user5     l2tpd     hm123456     192.168.18.7" >> /etc/ppp/chap-secrets
 echo "user6     l2tpd     hm123456     192.168.18.8" >> /etc/ppp/chap-secrets
+echo "user7     l2tpd     hm123456     192.168.18.9" >> /etc/ppp/chap-secrets
+echo "user8     l2tpd     hm123456     192.168.18.10" >> /etc/ppp/chap-secrets
+echo "user9     l2tpd     hm123456     192.168.18.11" >> /etc/ppp/chap-secrets
+echo "user10    l2tpd     hm123456     192.168.18.12" >> /etc/ppp/chap-secrets
+echo "user11    l2tpd     hm123456     192.168.18.13" >> /etc/ppp/chap-secrets
+echo "user12    l2tpd     hm123456     192.168.18.14" >> /etc/ppp/chap-secrets
+echo "user13    l2tpd     hm123456     192.168.18.15" >> /etc/ppp/chap-secrets
+echo "root      l2tpd     hm123456     192.168.18.100" >> /etc/ppp/chap-secrets
 systemctl restart xl2tpd
 systemctl restart ipsec
 
-# echo -e "${YELLOW}账号密码保存在当前目录下 account.txt 中${NC}"
 preinstall_l2tp
 cat /etc/ppp/chap-secrets
