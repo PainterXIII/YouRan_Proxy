@@ -18,7 +18,7 @@ fi
 # 创建新的 config.json 内容
 config_content=$(cat <<EOF
 {
-    "Debug": false,
+    "Debug": true,
     "Retries": 0,
     "ServeNodes": [
         "ss://aes-256-gcm:112233@:1116"
