@@ -60,37 +60,57 @@ stream {
         server $ip_address:1116;
     }
 
-
     server {
         listen 1701;
         listen 1701 udp;  # 监听UDP端口
         proxy_pass 1701_backend;
+        proxy_timeout 6000m;  # 增加超时时间为600分钟
+        proxy_connect_timeout 600s;  # 连接超时60秒
+        proxy_send_timeout 6000m;  # 发送数据超时时间
+        proxy_read_timeout 6000m;  # 读取数据超时时间
     }
 
     server {
         listen 500;
         listen 500 udp;  # 监听UDP端口
         proxy_pass 500_backend;
+        proxy_timeout 6000m;
+        proxy_connect_timeout 600s;
+        proxy_send_timeout 6000m;
+        proxy_read_timeout 6000m;
     }
 
     server {
         listen 4500;
         listen 4500 udp;  # 监听UDP端口
         proxy_pass 4500_backend;
+        proxy_timeout 6000m;
+        proxy_connect_timeout 600s;
+        proxy_send_timeout 6000m;
+        proxy_read_timeout 6000m;
     }
 
     server {
         listen 1234;  # 监听TCP端口
         listen 1234 udp;  # 监听UDP端口
         proxy_pass 1234_backend;
+        proxy_timeout 6000m;
+        proxy_connect_timeout 600s;
+        proxy_send_timeout 6000m;
+        proxy_read_timeout 6000m;
     }
 
     server {
         listen 1116;  # 监听TCP端口
         listen 1116 udp;  # 监听UDP端口
         proxy_pass 1116_backend;
+        proxy_timeout 6000m;
+        proxy_connect_timeout 600s;
+        proxy_send_timeout 6000m;
+        proxy_read_timeout 6000m;
     }
 }
+
 http {
 
 	##
