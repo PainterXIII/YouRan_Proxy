@@ -660,7 +660,7 @@ function method() {
     elif [ "$is_encrypt" == "ss" ]; then
       echo "        \"ss://$d_ip:$s_port@:$d_port\"" >>$gost_conf_path
     elif [ "$is_encrypt" == "socks" ]; then
-      echo "        \"socks5://$d_ip:$s_port@:$d_port\"" >>$gost_conf_path
+      echo "        \"socks5://$d_ip:$s_port@:$d_port?udp=true\"" >>$gost_conf_path
     elif [ "$is_encrypt" == "http" ]; then
       echo "        \"http://$d_ip:$s_port@:$d_port\"" >>$gost_conf_path
     else
