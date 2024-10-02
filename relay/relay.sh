@@ -394,7 +394,7 @@ nginx
 
 # 检查服务状态
 if [ $? -eq 0 ]; then
-    echo "gost 服务已成功重启。"
+    echo "nginx 服务已成功重启。"
 else
-    echo "gost 服务重启失败，请检查配置文件和服务状态。"
+    echo "nginx 服务重启失败，请检查配置文件和服务状态。"
 fi
